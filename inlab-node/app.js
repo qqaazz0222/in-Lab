@@ -10,11 +10,11 @@ const indexRouter = require("./routes/index");
 
 // 미들웨어
 const userMiddleware = require("./middleware/userMiddleware"); // 사용자 미들웨어
-// const groupMiddleware = require("./middleware/groupMiddleware"); // 그룹 미들웨어
-// const alertMiddleware = require("./middleware/alertMiddleware"); // 경고 미들웨어
-// const communityMiddleware = require("./middleware/communityMiddleware"); // 커뮤니티 미들웨어
-// const equipmentMiddleware = require("./middleware/equipmentMiddleware"); // 기자재 미들웨어
-// const attendanceMiddleware = require("./middleware/attendanceMiddleware"); // 출결 미들웨어
+const groupMiddleware = require("./middleware/groupMiddleware"); // 그룹 미들웨어
+const alertMiddleware = require("./middleware/alertMiddleware"); // 경고 미들웨어
+const communityMiddleware = require("./middleware/communityMiddleware"); // 커뮤니티 미들웨어
+const equipmentMiddleware = require("./middleware/equipmentMiddleware"); // 기자재 미들웨어
+const attendanceMiddleware = require("./middleware/attendanceMiddleware"); // 출결 미들웨어
 
 // Express 셋팅
 const app = express();
@@ -33,11 +33,11 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 // 미들웨어 연결
 app.use("/user", userMiddleware);
-// app.use("/group", groupMiddleware);
-// app.use("/alert", alertMiddleware);
-// app.use("/community", communityMiddleware);
-// app.use("/equipment", equipmentMiddleware);
-// app.use("/attendance", attendanceMiddleware);
+app.use("/group", groupMiddleware);
+app.use("/alert", alertMiddleware);
+app.use("/community", communityMiddleware);
+app.use("/equipment", equipmentMiddleware);
+app.use("/attendance", attendanceMiddleware);
 // 404 핸들러
 app.use((req, res, next) => {
     next(createError(404));
