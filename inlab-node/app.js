@@ -15,6 +15,7 @@ const alertMiddleware = require("./middleware/alertMiddleware"); // 경고 미�
 const communityMiddleware = require("./middleware/communityMiddleware"); // 커뮤니티 미들웨어
 const equipmentMiddleware = require("./middleware/equipmentMiddleware"); // 기자재 미들웨어
 const attendanceMiddleware = require("./middleware/attendanceMiddleware"); // 출결 미들웨어
+const signMiddleware = require("./middleware/signMiddleware"); // 로그인 및 회원가입 미들웨어
 
 // Express 셋팅
 const app = express();
@@ -38,6 +39,7 @@ app.use("/alert", alertMiddleware);
 app.use("/community", communityMiddleware);
 app.use("/equipment", equipmentMiddleware);
 app.use("/attendance", attendanceMiddleware);
+app.use("/sign", signMiddleware);
 // 404 핸들러
 app.use((req, res, next) => {
     next(createError(404));
