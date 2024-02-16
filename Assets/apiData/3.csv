@@ -1,0 +1,8 @@
+﻿Name,Path,태그
+사용자 생성,/create,POST
+사용자 목록 조회,/read/list,GET
+사용자 상세보기,/read/detail/:uid,GET
+사용자 정보 수정,/update/info,POST
+사용자 계정 허가 및 정지,/update/permission,POST
+사용자 삭제,/delete/detail/:uid,POST
+사용자 일괄 삭제,/delete/list,POST

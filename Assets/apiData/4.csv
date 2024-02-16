@@ -1,0 +1,5 @@
+﻿Name,Path,태그
+사용자 로그인,/sign/in/user,POST
+사용자 회원가입,/sign/up/user,POST
+관리자 로그인,/sign/in/admin,POST
+이메일 인증,/sign/verify,POST

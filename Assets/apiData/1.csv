@@ -1,0 +1,6 @@
+﻿Name,Path,태그
+공지 등록,/create,POST
+공지 목록 조회,/read/list,GET
+공지 상세보기,/read/detail/:nid,GET
+공지 수정,/update/info,POST
+공지 삭제,/delete/detail/:nid,GET
