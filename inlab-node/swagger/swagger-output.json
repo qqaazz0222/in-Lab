@@ -1,0 +1,898 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "inLab API",
+    "description": "연구실 안의 모든 일",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "기본"
+        ],
+        "description": "서버 상태",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/test": {
+      "get": {
+        "tags": [
+          "기본"
+        ],
+        "description": "기능 테스트",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/user/create": {
+      "post": {
+        "tags": [
+          "사용자"
+        ],
+        "description": "신규 사용자 생성",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "any"
+                },
+                "pw": {
+                  "example": "any"
+                },
+                "name": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/user/read/list": {
+      "get": {
+        "tags": [
+          "사용자"
+        ],
+        "description": "사용자 목록 조회",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/user/read/detail/{uid}": {
+      "get": {
+        "tags": [
+          "사용자"
+        ],
+        "description": "사용자 상세정보 조회",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/user/update/info": {
+      "post": {
+        "tags": [
+          "사용자"
+        ],
+        "description": "사용자 상세정보 조회",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "any"
+                },
+                "name": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/user/update/permission": {
+      "post": {
+        "tags": [
+          "사용자"
+        ],
+        "description": "사용자 계정 허가 및 정지",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "any"
+                },
+                "permit": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/user/delete/detail": {
+      "post": {
+        "tags": [
+          "사용자"
+        ],
+        "description": "사용자 삭제",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/user/delete/list": {
+      "post": {
+        "tags": [
+          "사용자"
+        ],
+        "description": "사용자 일괄 삭제",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idArr": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/group/create": {
+      "get": {
+        "tags": [
+          "그룹"
+        ],
+        "description": "그룹 생성",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/group/read/list": {
+      "get": {
+        "tags": [
+          "그룹"
+        ],
+        "description": "그룹 목록 조회",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/group/read/detail/{gid}": {
+      "get": {
+        "tags": [
+          "그룹"
+        ],
+        "description": "그룹 상세정보 조회",
+        "parameters": [
+          {
+            "name": "gid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/group/update/info": {
+      "get": {
+        "tags": [
+          "그룹"
+        ],
+        "description": "그룹 정보 수정",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/group/delete/detail/{gid}": {
+      "get": {
+        "tags": [
+          "그룹"
+        ],
+        "description": "그룹 삭제",
+        "parameters": [
+          {
+            "name": "gid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/alert/grant/detail/{alid}": {
+      "get": {
+        "tags": [
+          "경고"
+        ],
+        "description": "사용자 경고 부여",
+        "parameters": [
+          {
+            "name": "alid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/alert/grant/list": {
+      "get": {
+        "tags": [
+          "경고"
+        ],
+        "description": "사용자 일괄 경고 부여",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/alert/read/list": {
+      "get": {
+        "tags": [
+          "경고"
+        ],
+        "description": "다중 사용자 경고 목록 조회",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/alert/read/deatil/user/{uid}": {
+      "get": {
+        "tags": [
+          "경고"
+        ],
+        "description": "단일 사용자 경고 목록 조회",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/alert/read/deatil/alert/{alid}": {
+      "get": {
+        "tags": [
+          "경고"
+        ],
+        "description": "경고 상세정보 조회",
+        "parameters": [
+          {
+            "name": "alid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/alert/revoke/detail": {
+      "get": {
+        "tags": [
+          "경고"
+        ],
+        "description": "사용자 경고 회수",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/alert/revoke/list": {
+      "get": {
+        "tags": [
+          "경고"
+        ],
+        "description": "사용자 경고 일괄 회수",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/alert/init/detail/{uid}": {
+      "get": {
+        "tags": [
+          "경고"
+        ],
+        "description": "사용자 경고 초기화",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/alert/init/list": {
+      "get": {
+        "tags": [
+          "경고"
+        ],
+        "description": "사용자 경고 일괄 초기화",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/community/create/notice": {
+      "post": {
+        "tags": [
+          "공지"
+        ],
+        "description": "공지 등록",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/community/read/notice/list": {
+      "get": {
+        "tags": [
+          "공지"
+        ],
+        "description": "공지 목록 조회",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/community/read/notice/detail/{nid}": {
+      "get": {
+        "tags": [
+          "공지"
+        ],
+        "description": "공지 상세정보 조회",
+        "parameters": [
+          {
+            "name": "nid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/community/update/notice": {
+      "post": {
+        "tags": [
+          "공지"
+        ],
+        "description": "공지 수정",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/community/delete/notice/detail/{nid}": {
+      "post": {
+        "tags": [
+          "공지"
+        ],
+        "description": "공지 삭제",
+        "parameters": [
+          {
+            "name": "nid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/equipment/create": {
+      "post": {
+        "tags": [
+          "기자재"
+        ],
+        "description": "기자재 등록",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/equipment/grant": {
+      "post": {
+        "tags": [
+          "기자재"
+        ],
+        "description": "기자재 부여",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/equipment/read/list": {
+      "get": {
+        "tags": [
+          "기자재"
+        ],
+        "description": "기자재 목록 조회",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/equipment/read/detail/{eid}": {
+      "get": {
+        "tags": [
+          "기자재"
+        ],
+        "description": "기자재 상세정보 조회",
+        "parameters": [
+          {
+            "name": "eid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/equipment/update/info": {
+      "post": {
+        "tags": [
+          "기자재"
+        ],
+        "description": "기자재 정보 수정",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/equipment/delete/detail": {
+      "post": {
+        "tags": [
+          "기자재"
+        ],
+        "description": "기자재 삭제",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/equipment/delete/list": {
+      "post": {
+        "tags": [
+          "기자재"
+        ],
+        "description": "기자재 일괄 삭제",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/attendance/create/check/in": {
+      "get": {
+        "tags": [
+          "출결"
+        ],
+        "description": "입실 기록",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/attendance/create/check/out": {
+      "get": {
+        "tags": [
+          "출결"
+        ],
+        "description": "퇴실 기록",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/attendance/read/checksummary/list": {
+      "get": {
+        "tags": [
+          "출결 현황"
+        ],
+        "description": "출결 현황 조회",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/attendance/read/checksummary/monthly": {
+      "get": {
+        "tags": [
+          "출결 현황"
+        ],
+        "description": "월별 리포트 조회",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/attendance/update/{check}": {
+      "get": {
+        "tags": [
+          "출결 현황"
+        ],
+        "description": "출결 이력 수정",
+        "parameters": [
+          {
+            "name": "check",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/attendance/create/absence": {
+      "get": {
+        "tags": [
+          "유고결석"
+        ],
+        "description": "유고결석 등록",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/attendance/read/absence/list": {
+      "get": {
+        "tags": [
+          "유고결석"
+        ],
+        "description": "유고결석 조회",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/attendance/read/absence/detail/{abid}": {
+      "get": {
+        "tags": [
+          "유고결석"
+        ],
+        "description": "유고결석 상세정보 조회",
+        "parameters": [
+          {
+            "name": "abid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/attendance/update/absence": {
+      "get": {
+        "tags": [
+          "유고결석"
+        ],
+        "description": "유고결석 승인 및 반려",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/attendance/delete/absence/{abid}": {
+      "get": {
+        "tags": [
+          "유고결석"
+        ],
+        "description": "유고결석 삭제",
+        "parameters": [
+          {
+            "name": "abid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/sign/in/user": {
+      "post": {
+        "tags": [
+          "로그인 및 회원가입"
+        ],
+        "description": "사용자 로그인",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "any"
+                },
+                "pw": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/sign/up/user": {
+      "post": {
+        "tags": [
+          "로그인 및 회원가입"
+        ],
+        "description": "사용자 회원가입",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "any"
+                },
+                "pw": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/sign/in/admin": {
+      "post": {
+        "tags": [
+          "로그인 및 회원가입"
+        ],
+        "description": "관리자 로그인",
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/sign/verify": {
+      "post": {
+        "tags": [
+          "로그인 및 회원가입"
+        ],
+        "description": "이메일 인증",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    }
+  }
+}

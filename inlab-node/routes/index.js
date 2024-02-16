@@ -10,15 +10,22 @@ const router = express.Router();
 const jwt = require("./../utils/jwt");
 const { createVerify } = require("./../utils/emailUtil");
 
-/* GET home page. */
 router.get("/", async (req, res, next) => {
-    res.render("index", { title: "Express" });
+    //  #swagger.description = '서버 상태'
+    //  #swagger.tags = ['기본']
+    res.json({
+        status: 200,
+        msg: "서버가 정상적으로 동작중입니다.",
+        data: { apiDocs: "/api-docs" },
+    });
 });
 
 // 기능 테스트용
 router.get("/test", async (req, res, next) => {
-    let result;
-    return res.json(options);
+    //  #swagger.description = '기능 테스트'
+    //  #swagger.tags = ['기본']
+    let result = { state: 200, msg: "테스트 중인 기능 없음", data: [] };
+    return res.json(result);
 });
 
 module.exports = router;

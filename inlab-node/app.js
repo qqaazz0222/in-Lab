@@ -17,6 +17,10 @@ const equipmentMiddleware = require("./middleware/equipmentMiddleware"); // 기�
 const attendanceMiddleware = require("./middleware/attendanceMiddleware"); // 출결 미들웨어
 const signMiddleware = require("./middleware/signMiddleware"); // 로그인 및 회원가입 미들웨어
 
+// API 문서
+const swaggerFile = require("./swagger/swagger-output.json");
+const swaggerUi = require("swagger-ui-express");
+
 // Express 셋팅
 const app = express();
 // View Engine 셋팅 (미사용)
@@ -40,6 +44,12 @@ app.use("/community", communityMiddleware);
 app.use("/equipment", equipmentMiddleware);
 app.use("/attendance", attendanceMiddleware);
 app.use("/sign", signMiddleware);
+// Swagger 연결
+app.use(
+    "/api-docs",
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerFile, { explorer: true })
+);
 // 404 핸들러
 app.use((req, res, next) => {
     next(createError(404));
