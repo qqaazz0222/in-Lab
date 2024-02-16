@@ -31,6 +31,7 @@ router.post("/in/admin", async (req, res, next) => {
     return res.json(result);
 });
 
+// 🔵 이메일 인증
 router.post("/verify", async (req, res, next) => {
     const result = await signService.verify(req);
     console.log(result);
