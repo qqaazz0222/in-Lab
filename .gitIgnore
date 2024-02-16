@@ -2,3 +2,4 @@
 
 /inlab-node/node_modules
 /inlab-node/package-lock.json
+/inlab-node/.env
