@@ -1,0 +1,71 @@
+.inputTextWrap {
+    width: 100%;
+}
+
+.inputTitle {
+    margin: 0;
+    margin-bottom: .375rem;
+    width: 100%;
+    font-size: .875rem;
+    font-weight: 600;
+    color: var(--col-gray-900);
+    user-select: none;
+}
+
+.inputTextWrap .textInput {
+    width: calc(100% - 2rem);
+    padding: .75rem 1rem;
+    border: 1px solid var(--col-divider);
+    border-radius: .375rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--col-gray-900);
+    outline: none;
+}
+
+.inputTextWrap .textInput:focus {
+    outline: .125rem solid var(--col-primary-500);
+}
+
+.inputPasswordWrap {
+    width: 100%;
+}
+
+.inputPasswordWrap .passwordInput {
+    width: calc(100% - 2rem);
+    padding: .75rem 1rem;
+    border: 1px solid var(--col-divider);
+    border-radius: .375rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--col-gray-900);
+    outline: none;
+}
+
+.inputPasswordWrap .passwordInput:focus {
+    outline: .125rem solid var(--col-primary-500);
+}
+
+.inputPasswordWrap .btnVisible {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem .625rem;
+    background: var(--col-gray-50);
+    border: 1px solid var(--col-divider);
+    border-radius: .375rem;
+    transition: background .3s;
+}
+
+.inputPasswordWrap .btnVisible:hover {
+    background: var(--col-gray-200);
+}
+
+
+.inputRow {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+    width: 100%;
+}

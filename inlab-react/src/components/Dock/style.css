@@ -1,0 +1,149 @@
+#sideDockComp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.25rem;
+    padding: 1.25rem 0.625rem;
+    width: 3.25rem;
+    height: calc(100svh - 2.5rem);
+    background: var(--col-primary-500);
+    border-right: 1px solid var(--col-primary-200);
+    overflow: hidden;
+    transition: width .75s;
+}
+
+#sideDockComp.opened {
+    width: 15rem;
+}
+
+#sideDockComp .menuWrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 .625rem;
+    width: 2rem;
+    height: 3.25rem;
+    border-radius: .375rem;
+    overflow: hidden;
+    transition: background .3s;
+}
+
+#sideDockComp .menuWrap:hover {
+    background: var(--col-primary-700);
+}
+
+#sideDockComp .navWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 12px;
+    width: 100%;
+    overflow: hidden;
+}
+
+#sideDockComp .navWrap .navItemWrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 0 .625rem;
+    min-width: 2rem;
+    width: calc(100% - 1.25rem);
+    height: 3.25rem;
+    border-radius: .375rem;
+    overflow: hidden;
+    transition: background .3s;
+}
+
+#sideDockComp .navWrap .navItemWrap:hover,
+#sideDockComp .navWrap .navItemWrap.selected {
+    background: var(--col-primary-700);
+}
+
+#sideDockComp .navWrap .navItemWrap span {
+    display: inline-block;
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--col-gray-50);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#bottomDockComp {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: .5rem 0.625rem;
+    width: calc(100svw - 1.25rem);
+    height: fit-content;
+    background: var(--col-primary-500);
+    border-top: 1px solid var(--col-primary-200);
+    overflow: hidden;
+}
+
+
+#bottomDockComp .navWrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    overflow: hidden;
+    transition: width .3s;
+}
+
+#bottomDockComp .navWrap .navItemWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .325rem;
+    padding: .625rem;
+    width: 3.5rem;
+    height: fit-content;
+    border-radius: .375rem;
+    overflow: hidden;
+    transition: background .3s;
+}
+
+#bottomDockComp .navWrap .navItemWrap:hover,
+#bottomDockComp .navWrap .navItemWrap.selected {
+    background: var(--col-primary-700);
+}
+
+#bottomDockComp .navWrap .navItemWrap span {
+    display: inline-block;
+    font-size: .75rem;
+    font-weight: 400;
+    color: var(--col-gray-50);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 721px) {
+    #sideDockComp {
+        display: flex;
+    }
+
+    #bottomDockComp {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    #sideDockComp {
+        display: none;
+    }
+
+    #bottomDockComp {
+        display: flex;
+    }
+}

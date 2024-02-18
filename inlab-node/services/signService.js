@@ -115,11 +115,49 @@ const signInAdmin = async (req) => {
 };
 
 /**
+ * 토큰 검증
+ * @param {*} req
+ * @returns
+ */
+const verifyToken = async (req) => {
+    try {
+        const { token } = req.body;
+        if (!NullCheck(token)) {
+            return {
+                status: 500,
+                msg: "입력값 오류(토큰 미입력)",
+                data: req.body,
+            };
+        } else {
+            if (jwt.check(token)) {
+                return {
+                    status: 200,
+                    msg: "토큰 검증 성공",
+                    data: {
+                        token: token,
+                    },
+                };
+            } else {
+                return {
+                    status: 201,
+                    msg: "토큰 검증 실패",
+                    data: {
+                        token: token,
+                    },
+                };
+            }
+        }
+    } catch (err) {
+        return { status: 500, msg: "알 수 없는 오류", data: err };
+    }
+};
+
+/**
  * 인증 코드 메일 발송
  * @param {*} req
  * @returns
  */
-const verify = async (req) => {
+const verifyEmail = async (req) => {
     try {
         const { email } = req.body;
         if (!NullCheck(email)) {
@@ -160,5 +198,6 @@ module.exports = {
     signInUser,
     signUpUser,
     signInAdmin,
-    verify,
+    verifyToken,
+    verifyEmail,
 };

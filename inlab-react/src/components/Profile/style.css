@@ -1,0 +1,11 @@
+.profileComp {
+    border: 1px solid var(--col-outline);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profileComp .profileImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

@@ -1,0 +1,15 @@
+#headerComp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    width: calc(100svw - 2.5rem);
+    height: fit-content;
+    background: var(--col-gray-50);
+}

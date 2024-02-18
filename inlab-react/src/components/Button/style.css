@@ -1,0 +1,95 @@
+.button {
+    padding: .5rem 1rem;
+    background: none;
+    border: none;
+    border-radius: .375rem;
+    outline: none;
+    color: none;
+    font-size: .875rem;
+    font-weight: 500;
+    transition: background .25s, border .25s;
+    cursor: pointer;
+}
+
+.fullButton {
+    padding: 1rem 2rem;
+    width: 100%;
+}
+
+.button.primary {
+    background: var(--col-primary-500);
+    border: 1px solid var(--col-primary-300);
+    color: var(--col-gray-50);
+}
+
+.button.primary:hover,
+.button.primary:focus {
+    background: var(--col-primary-700);
+}
+
+.button.secondary {
+    background: var(--col-gray-50);
+    border: 1px solid var(--col-gray-50);
+    color: var(--col-gray-900);
+}
+
+.button.secondary:hover,
+.button.secondary:focus {
+    background: var(--col-gray-500);
+}
+
+.button.outline {
+    background: var(--col-gray-50);
+    border: 1px solid var(--col-divider);
+    color: var(--col-gray-500);
+}
+
+.button.outline:hover,
+.button.outline:focus {
+    background: var(--col-gray-200);
+}
+
+.button.link {
+    background: var(--col-gray-50);
+    border: 1px solid var(--col-gray-50);
+    color: var(--col-gray-900);
+}
+
+.button.link span:after {
+    display: block;
+    content: '';
+    border-bottom: solid 1px var(--col-gray-900);
+    transform: scaleX(0);
+    transition: transform .3s;
+}
+
+.button.link:hover span:after {
+    transform: scaleX(1);
+}
+
+.button.loading {
+    background: var(--col-input);
+    border: 1px solid var(--col-input);
+    color: var(--col-400);
+    cursor: progress;
+}
+
+.fullButton.link {
+    font-size: 1.125rem;
+    line-height: 2rem;
+    background: var(--col-gray-50);
+    border: 1px solid var(--col-gray-50);
+    color: var(--col-gray-900);
+}
+
+.fullButton.link span:after {
+    display: block;
+    content: '';
+    border-bottom: solid 1px var(--col-gray-900);
+    transform: scaleX(0);
+    transition: transform .3s;
+}
+
+.fullButton.link:hover span:after {
+    transform: scaleX(1);
+}

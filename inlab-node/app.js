@@ -1,12 +1,10 @@
 // 라이브러리
 const createError = require("http-errors");
 const express = require("express");
+const cors = require("cors");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-
-// 라우터 (API 테스트용)
-const indexRouter = require("./routes/index");
 
 // 미들웨어
 const userMiddleware = require("./middleware/userMiddleware"); // 사용자 미들웨어
@@ -23,6 +21,7 @@ const swaggerUi = require("swagger-ui-express");
 
 // Express 셋팅
 const app = express();
+app.use(cors());
 // View Engine 셋팅 (미사용)
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -34,8 +33,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 // Public 폴더 엑세스
 app.use(express.static(path.join(__dirname, "public")));
-// 인덱스 라우터
-app.use("/", indexRouter);
 // 미들웨어 연결
 app.use("/user", userMiddleware);
 app.use("/group", groupMiddleware);
@@ -45,11 +42,7 @@ app.use("/equipment", equipmentMiddleware);
 app.use("/attendance", attendanceMiddleware);
 app.use("/sign", signMiddleware);
 // Swagger 연결
-app.use(
-    "/api-docs",
-    swaggerUi.serve,
-    swaggerUi.setup(swaggerFile, { explorer: true })
-);
+app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerFile, { explorer: true }));
 // 404 핸들러
 app.use((req, res, next) => {
     next(createError(404));

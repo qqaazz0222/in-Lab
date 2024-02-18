@@ -5,7 +5,7 @@ const doc = {
         title: "inLab API",
         description: "연구실 안의 모든 일",
     },
-    host: "localhost:3000",
+    host: "localhost:80",
     schemes: ["http"],
     // schemes: ["https" ,"http"],
 };

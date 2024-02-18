@@ -1,0 +1,100 @@
+.calendar {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--col-outline);
+    border-radius: .5rem;
+}
+
+.calendar .calendarHeader {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    padding: 1rem;
+}
+
+.calendar .calendarHeader .pickerWrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.calendar .calendarBody {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+    max-width: 100%;
+}
+
+.calendar .calendarBody .calHead {
+    padding: .75rem;
+    border: 1px solid var(--col-outline);
+    border-width: 1px 1px 1px 0;
+    font-size: .875rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--col-gray-600);
+}
+
+.calendar .calendarBody .calHead:nth-child(7) {
+    border-right: none;
+}
+
+.calendar .calendarBody .calBody {
+    display: flex;
+    flex-direction: column;
+    padding: .25rem;
+    min-height: 4rem;
+    width: calc(100% - .5rem - 1px);
+    background: var(--col-gray-100);
+    border: 1px solid var(--col-outline);
+    border-width: 0 1px 1px 0;
+    font-size: .875rem;
+    font-weight: 400;
+    color: var(--col-gray-400);
+}
+
+.calendar .calendarBody .calBody:nth-child(7n) {
+    border-right: none;
+}
+
+.calendar .calendarBody .calBody.actived {
+    gap: .125rem;
+    background: var(--col-gray-50);
+    color: var(--col-gray-900);
+}
+
+.calendar .calendarBody .calBody.actived.sat {
+    color: var(--col-blue-400);
+}
+
+.calendar .calendarBody .calBody.actived.sun {
+    color: var(--col-red-400);
+}
+
+.calendar .calendarFooter {
+    padding: 1rem;
+}
+
+.schedule {
+    display: table;
+    table-layout: fixed;
+    padding: .125rem .25rem;
+    width: calc(100% - .5rem);
+    background: var(--col-primary-500);
+    font-size: .875rem;
+    font-weight: 500;
+    color: var(--col-gray-50);
+    border-radius: .25rem;
+    overflow: hidden;
+    user-select: none;
+    cursor: pointer;
+}
+
+.schedule .scheduleName {
+    display: table-cell;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

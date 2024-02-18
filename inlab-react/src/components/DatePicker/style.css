@@ -1,0 +1,70 @@
+.monthPicker {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+}
+
+.monthPicker .group1Wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.monthPicker .indicator {
+    padding: .75rem;
+    min-width: 4rem;
+    height: 100%;
+    line-height: 1rem;
+    border: 1px solid var(--col-outline);
+    border-width: 1px 0 1px 0;
+    text-align: center;
+    user-select: none;
+}
+
+.monthPicker .btn {
+    padding: .625rem;
+    background: var(--col-gray-50);
+    border: 1px solid var(--col-outline);
+    outline: none;
+    font-size: 1rem;
+    transition: background .3s;
+    user-select: none;
+}
+
+.monthPicker .btn:hover {
+    background: var(--col-gray-200);
+}
+
+
+.box {
+    position: absolute;
+    top: calc(100% + .25rem);
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translateX(-50%);
+    background: red;
+}
+
+
+.monthPicker .btn.prevBtn {
+    border-radius: .375rem 0 0 .375rem;
+}
+
+.monthPicker .btn.calBtn {
+    position: relative;
+    border-right: none;
+}
+
+.monthPicker .btn.nextBtn {
+    border-radius: 0 .375rem .375rem 0;
+}
+
+.monthPicker .btn.todayBtn {
+    padding: .625rem;
+    border-radius: .375rem;
+    font-size: .875rem;
+    font-weight: 500;
+    color: var(--col-gray-500);
+}

@@ -5,38 +5,12 @@
     "description": "연구실 안의 모든 일",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "localhost:80",
   "basePath": "/",
   "schemes": [
     "http"
   ],
   "paths": {
-    "/": {
-      "get": {
-        "tags": [
-          "기본"
-        ],
-        "description": "서버 상태",
-        "responses": {
-          "200": {
-            "description": "성공"
-          }
-        }
-      }
-    },
-    "/test": {
-      "get": {
-        "tags": [
-          "기본"
-        ],
-        "description": "기능 테스트",
-        "responses": {
-          "200": {
-            "description": "성공"
-          }
-        }
-      }
-    },
     "/user/create": {
       "post": {
         "tags": [

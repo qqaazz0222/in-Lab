@@ -1,0 +1,24 @@
+#dashBoardLayout {
+    width: 100svw;
+    height: calc(100svh - 4.375rem);
+    overflow: scroll;
+}
+
+#dashBoardLayout .pageWrap {
+    margin-top: 4.375rem;
+    transition: margin .3s;
+}
+
+@media screen and (min-width: 721px) {
+    #dashBoardLayout .pageWrap {
+        padding: 2rem;
+        margin-left: 4.5rem;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    #dashBoardLayout .pageWrap {
+        padding: 1rem;
+        margin-left: 0;
+    }
+}

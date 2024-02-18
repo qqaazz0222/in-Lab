@@ -1,0 +1,101 @@
+#signPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100svw;
+    height: 100svh;
+    background: linear-gradient(-45deg, var(--col-primary-200), var(--col-primary-700), var(--col-primary-500));
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+#signPage .signWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: var(--col-gray-50);
+    border: 1px solid var(--col-outline);
+    border-radius: .5rem;
+    transition: width .3s, padding .3s;
+}
+
+@media screen and (min-width: 721px) {
+    #signPage .signWrap {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    #signPage .signWrap {
+        padding: 1.5rem;
+        width: calc(100svw - 5rem);
+        max-width: 400px;
+    }
+}
+
+#signPage .signWrap .signHeader {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    user-select: none;
+}
+
+#signPage .signWrap .signHeader .signTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--col-gray-900);
+    user-select: none;
+}
+
+#signPage .signWrap .signHeader .signSubTitle {
+    font-size: .875rem;
+    font-weight: 500;
+    color: var(--col-gray-500);
+}
+
+#signPage .signWrap .signInfoWrap {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
+}
+
+#signPage .signWrap .signMoreWrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+#signPage .signWrap .signMoreWrap .moreItem {
+    flex: 1;
+    border-right: 1px solid var(--col-divider);
+    font-size: .875rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--col-gray-500);
+}
+
+#signPage .signWrap .signMoreWrap .moreItem:last-child {
+    border-right: none;
+}
+
+#signPage .signWrap .signMoreWrap .moreItem:hover {
+    text-decoration: underline;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

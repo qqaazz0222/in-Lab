@@ -38,11 +38,18 @@ router.post("/in/admin", async (req, res, next) => {
 });
 
 // 🔵 이메일 인증
-router.post("/verify", async (req, res, next) => {
+router.post("/verify/email", async (req, res, next) => {
     //  #swagger.description = '이메일 인증'
     //  #swagger.tags = ['로그인 및 회원가입']
-    const result = await signService.verify(req);
-    console.log(result);
+    const result = await signService.verifyEmail(req);
+    return res.json(result);
+});
+
+// 🔵 토큰 검증
+router.post("/verify/token", async (req, res, next) => {
+    //  #swagger.description = '토큰 컴증'
+    //  #swagger.tags = ['로그인 및 회원가입']
+    const result = await signService.verifyToken(req);
     return res.json(result);
 });
 

@@ -1,0 +1,31 @@
+.pageTitleWrap {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    user-select: none;
+}
+
+.pageTitleWrap .pageTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--col-gray-900);
+}
+
+.pageTitleWrap .pageSubTitle {
+    font-size: .875rem;
+    font-weight: 400;
+    color: var(--col-gray-500);
+}
+
+.cardTitleWrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+}
+
+.cardTitleWrap .cardTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--col-gray-900);
+}
