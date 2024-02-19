@@ -29,3 +29,16 @@
     font-weight: 600;
     color: var(--col-gray-900);
 }
+
+.sectionTitleWrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+}
+
+.sectionTitleWrap .sectionTitle {
+    font-size: .875rem;
+    font-weight: 500;
+    color: var(--col-gray-500);
+}

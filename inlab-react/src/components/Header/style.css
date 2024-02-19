@@ -11,5 +11,6 @@
     padding: 1rem 1.25rem;
     width: calc(100svw - 2.5rem);
     height: fit-content;
-    background: var(--col-gray-50);
+    background: var(--col-white-op-50);
+    backdrop-filter: blur(.5rem);
 }

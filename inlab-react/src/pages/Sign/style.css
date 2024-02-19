@@ -28,6 +28,10 @@
 }
 
 @media screen and (max-width: 720px) {
+    #signPage {
+        padding-top: 5rem;
+    }
+
     #signPage .signWrap {
         padding: 1.5rem;
         width: calc(100svw - 5rem);

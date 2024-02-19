@@ -12,7 +12,7 @@ const Attendance = () => {
                 />
             </div>
             <div className="pageContentWrap pageContentGrid">
-                <div className="card calendarCard">
+                <div className="calendarCard">
                     <AttendanceCalendar />
                 </div>
             </div>

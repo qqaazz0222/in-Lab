@@ -9,6 +9,8 @@ import Home from "./pages/Home/page";
 import Attendance from "./pages/Attendance/page";
 import Todo from "./pages/Todo/page";
 import Project from "./pages/Project/page";
+import Chat from "./pages/Chat/page";
+import ChatLayout from "./layouts/ChatLayout/layout";
 
 const App = () => {
     return (
@@ -23,6 +25,9 @@ const App = () => {
                         <Route path="/attendance" element={<Attendance />} />
                         <Route path="/todo" element={<Todo />} />
                         <Route path="/project" element={<Project />} />
+                    </Route>
+                    <Route element={<ChatLayout />}>
+                        <Route path="/chat" element={<Chat />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

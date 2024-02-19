@@ -1,0 +1,71 @@
+#chatPage .pageSideBarWrap .pageSideBarBodyWrap .chatListWrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.chatRoom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    border-top: 1px solid var(--col-outline);
+    transition: background .25s;
+    user-select: none;
+}
+
+.chatRoom:hover {
+    background: var(--col-gray-100);
+}
+
+.chatRoom.selected {
+    background: var(--col-primary-50);
+}
+
+.chatRoom:last-child {
+    border-bottom: 1px solid var(--col-outline);
+}
+
+.chatRoom .chatRoomInfoWrap {
+    display: flex;
+    flex-direction: column;
+    gap: .125rem;
+    flex: 1;
+}
+
+.chatRoom .chatRoomInfoWrap .roomName {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--col-gray-900);
+    transition: color .25s;
+}
+
+.chatRoom .chatRoomInfoWrap .lastChat {
+    font-size: .875rem;
+    font-weight: 400;
+    color: var(--col-gray-500);
+}
+
+
+@media screen and (min-width: 721px) {
+    .chatRoom {
+        padding: .75rem;
+        width: calc(100% - 1.5rem);
+    }
+
+    .chatRoom .chatRoomInfoWrap {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .chatRoom {
+        padding: .5rem;
+        width: calc(100% - 1rem);
+        border: none;
+    }
+
+    .chatRoom .chatRoomInfoWrap {
+        display: none;
+    }
+}

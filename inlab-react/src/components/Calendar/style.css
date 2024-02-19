@@ -3,6 +3,7 @@
     flex-direction: column;
     border: 1px solid var(--col-outline);
     border-radius: .5rem;
+    user-select: none;
 }
 
 .calendar .calendarHeader {
@@ -53,6 +54,8 @@
     font-size: .875rem;
     font-weight: 400;
     color: var(--col-gray-400);
+    transition: background .25s, color .25s;
+    cursor: not-allowed
 }
 
 .calendar .calendarBody .calBody:nth-child(7n) {
@@ -63,19 +66,31 @@
     gap: .125rem;
     background: var(--col-gray-50);
     color: var(--col-gray-900);
+    cursor: pointer
 }
 
+.calendar .calendarBody .calBody.actived:hover {
+    background: var(--col-primary-50);
+}
+
+.calendar .calendarBody .calBody.actived.selected,
+.calendar .calendarBody .calBody.actived.selected.sat,
+.calendar .calendarBody .calBody.actived.selected.sun,
+.calendar .calendarBody .calBody.actived.selected:hover {
+    background: var(--col-primary-100);
+    color: var(--col-primary-500);
+}
+
+
 .calendar .calendarBody .calBody.actived.sat {
-    color: var(--col-blue-400);
+    color: var(--col-blue-300);
 }
 
 .calendar .calendarBody .calBody.actived.sun {
-    color: var(--col-red-400);
+    color: var(--col-red-300);
 }
 
-.calendar .calendarFooter {
-    padding: 1rem;
-}
+.calendar .calendarFooter {}
 
 .schedule {
     display: table;
@@ -97,4 +112,59 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+.listView {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: var(--col-gray-50);
+}
+
+.listView .listViewHeader {
+    display: flex;
+    flex-direction: row;
+    gap: .25rem;
+    padding: .5rem 1rem;
+    border-bottom: 1px solid var(--col-outline);
+    font-size: .875rem;
+    font-weight: 400;
+    color: var(--col-gray-500);
+}
+
+.listView .listViewItemWrap {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 1rem;
+    width: calc(100% - 1.5rem);
+    border-bottom: 1px solid var(--col-outline);
+}
+
+.listView .listViewItemWrap:last-child {
+    border-bottom: none;
+}
+
+.listView .listViewItemWrap .dateInfoWrap {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.listView .listViewItemWrap .dateInfoWrap .time {
+    font-size: .875rem;
+    font-weight: 400;
+    color: var(--col-gray-700);
+}
+
+.listView .listViewItemWrap .detailInfoWrap {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+}
+
+.listView .listViewItemWrap .detailInfoWrap .detail {
+    font-size: .875rem;
+    font-weight: 500;
+    color: var(--col-gray-900);
 }

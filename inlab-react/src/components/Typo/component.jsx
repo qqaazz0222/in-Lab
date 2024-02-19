@@ -17,4 +17,12 @@ const CardTitle = ({ title = "" }) => {
     );
 };
 
-export { PageTitle, CardTitle };
+const SectionTitle = ({ title = "" }) => {
+    return (
+        <div className="sectionTitleWrap">
+            <div className="sectionTitle">{title}</div>
+        </div>
+    );
+};
+
+export { PageTitle, CardTitle, SectionTitle };

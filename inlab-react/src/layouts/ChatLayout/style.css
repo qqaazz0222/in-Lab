@@ -1,0 +1,78 @@
+#chatLayout {
+    width: 100svw;
+    height: 100svh;
+    overflow: hidden;
+}
+
+#chatLayout .pageWrap {
+    transition: margin .3s;
+}
+
+@media screen and (min-width: 721px) {
+    #chatLayout .pageWrap {
+        margin-left: 4.5rem;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    #chatLayout .pageWrap {
+        margin-left: 0;
+    }
+}
+
+#chatLayout .page {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+}
+
+#chatLayout .page .pageSideBarWrap {
+    display: flex;
+    flex-direction: column;
+    background: var(--col-gray-50);
+    border-right: 1px solid var(--col-outline);
+    min-height: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+
+#chatLayout .page .pageSideBarWrap .pageSideBarHeaderWrap {
+    padding: 1rem;
+}
+
+#chatLayout .page .pageSideBarWrap .pageSideBarBodyWrap {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 721px) {
+    #chatLayout .page {
+        width: calc(100svw - 4.5rem);
+        height: 100svh;
+    }
+
+    #chatLayout .page .pageSideBarWrap {
+        width: 18rem;
+    }
+
+    #chatLayout .page .pageSideBarWrap .pageSideBarHeaderWrap {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    #chatLayout .page {
+        width: 100svw;
+        height: calc(100svh - 5rem);
+    }
+
+    #chatLayout .page .pageSideBarWrap {
+        width: 64px;
+    }
+
+    .page .pageSideBarWrap .pageSideBarHeaderWrap {
+        display: none;
+    }
+}
