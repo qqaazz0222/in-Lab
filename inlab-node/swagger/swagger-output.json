@@ -841,7 +841,7 @@
         }
       }
     },
-    "/sign/verify": {
+    "/sign/verify/email": {
       "post": {
         "tags": [
           "로그인 및 회원가입"
@@ -855,6 +855,33 @@
               "type": "object",
               "properties": {
                 "email": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공"
+          }
+        }
+      }
+    },
+    "/sign/verify/token": {
+      "post": {
+        "tags": [
+          "로그인 및 회원가입"
+        ],
+        "description": "토큰 컴증",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token": {
                   "example": "any"
                 }
               }
