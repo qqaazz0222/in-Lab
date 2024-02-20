@@ -1,9 +1,9 @@
 // 라이브러리
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useUserStore from "@/stores/userStore";
 // 서비스
-// import { UserSignIn, VerifyToken } from "@/services/signService";
+import { UserSignIn, VerifyToken } from "@/services/signService";
 // 컴포넌트
 import {
     AlertDialog,
@@ -47,16 +47,19 @@ const SignPage = () => {
     // 함수
     const requestSignIn = async () => {
         if (option === "user") {
-            requestUserSignIn();
+            requestUserSignIn(idRef.current.value, pwRef.current.value);
         } else {
             requestAdminSignIn();
         }
     };
-    const requestUserSignIn = async () => {
-        console.log("User SignIn");
-        console.log(idRef.current.value);
-        console.log(pwRef.current.value);
-        navigate("/home");
+    const requestUserSignIn = async (id, pw) => {
+        if (option === "user") {
+            const response = await UserSignIn(id, pw);
+            if (response.status === 200) {
+                setUser(response.data);
+                navigate("/home");
+            }
+        }
     };
     const requestAdminSignIn = async () => {
         console.log("Admin SignIn");
@@ -64,7 +67,27 @@ const SignPage = () => {
         console.log(pwRef.current.value);
         setErrMsg("오류발생!!!");
     };
-
+    const verifyToken = async (token) => {
+        const response = await VerifyToken(token);
+        if (response.status === 200) {
+            navigate("/home");
+        }
+    };
+    const keyPressEvent = () => {
+        document.addEventListener("keydown", (event) => {
+            if (event.keyCode === 13) {
+                requestSignIn();
+            }
+        });
+    };
+    useEffect(() => {
+        keyPressEvent();
+    }, []);
+    useEffect(() => {
+        if (userData.token !== "") {
+            verifyToken(userData.token);
+        }
+    }, [userData]);
     return (
         <div
             id="signPage"

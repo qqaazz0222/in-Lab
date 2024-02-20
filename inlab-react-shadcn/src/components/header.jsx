@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import useUserStore from "@/stores/userStore";
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,13 +19,25 @@ import {
     UserPlus,
     Users,
 } from "lucide-react";
+import { useEffect } from "react";
 
 const Header = () => {
     const navigate = useNavigate();
-
+    // 전역상태
+    const userData = useUserStore((state) => state.userData);
+    const clearUser = useUserStore((state) => state.clearUser);
     const signOut = () => {
-        navigate("/");
+        clearUser();
     };
+    useEffect(() => {
+        if (
+            userData.uid === "" ||
+            userData.name === "" ||
+            userData.token === ""
+        ) {
+            navigate("/");
+        }
+    }, [userData]);
     return (
         <div
             id="header"
