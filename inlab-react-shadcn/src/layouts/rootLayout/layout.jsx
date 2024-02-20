@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
 import "./style.css";
 
-const DashBoardLayout = () => {
+const RootLayout = () => {
     return (
-        <div id="dashBoardLayout">
+        <div id="rootLayout">
             <div className="pageWrap">
                 <Outlet />
             </div>
@@ -11,4 +11,4 @@ const DashBoardLayout = () => {
     );
 };
 
-export default DashBoardLayout;
+export default RootLayout;
