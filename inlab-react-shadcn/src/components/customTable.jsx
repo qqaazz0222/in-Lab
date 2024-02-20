@@ -11,8 +11,10 @@ import {
     TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 // 아이콘
-import { Trash } from "lucide-react";
+import { Plus, Trash } from "lucide-react";
+import { useRef } from "react";
 // 스타일
 
 const AttendanceTable = () => {
@@ -82,6 +84,26 @@ const TodoClassTable = ({
     types = [{ name: "", value: "" }],
     setTypes = () => {},
 }) => {
+    const nameRef = useRef();
+    const valueRef = useRef();
+    const addType = () => {
+        let array = [...types];
+        const index = array.findIndex(
+            ({ value }) => value === valueRef.current.value
+        );
+        if (nameRef.current.value !== "" && valueRef.current.value !== "") {
+            if (index === -1) {
+                array.push({
+                    name: nameRef.current.value,
+                    value: valueRef.current.value,
+                });
+                nameRef.current.value = "";
+                valueRef.current.value = "";
+            }
+        }
+
+        setTypes(array);
+    };
     const removeType = (v) => {
         let array = [...types];
         const index = array.findIndex(({ value }) => value === v);
@@ -119,6 +141,25 @@ const TodoClassTable = ({
                         </TableCell>
                     </TableRow>
                 ))}
+                <TableRow>
+                    <TableCell className="px-1 overflow-visible">
+                        <Input placeholder="이름 입력" ref={nameRef} />
+                    </TableCell>
+                    <TableCell className="px-1">
+                        <Input placeholder="값 입력" ref={valueRef} />
+                    </TableCell>
+                    <TableCell>
+                        <Button
+                            className="p-3"
+                            variant="outline"
+                            onClick={() => {
+                                addType("", "");
+                            }}
+                        >
+                            <Plus className="w-4 h-4" />
+                        </Button>
+                    </TableCell>
+                </TableRow>
             </TableBody>
         </Table>
     );

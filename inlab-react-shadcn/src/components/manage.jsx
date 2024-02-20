@@ -112,49 +112,6 @@ const TodoManage = () => {
                                         setTypeList(v);
                                     }}
                                 />
-                                <Dialog>
-                                    <DialogTrigger className="w-full">
-                                        <Button variant="" className="w-full">
-                                            추가하기
-                                        </Button>
-                                    </DialogTrigger>
-                                    <DialogContent className="sm:max-w-[425px]">
-                                        <DialogHeader>
-                                            <DialogTitle>구분 추가</DialogTitle>
-                                            <DialogDescription>
-                                                @ Todo Class Create
-                                            </DialogDescription>
-                                        </DialogHeader>
-                                        <div className="grid gap-2">
-                                            <div className="grid grid-rows-2 items-center">
-                                                <Label htmlFor="name">
-                                                    표기 이름
-                                                </Label>
-                                                <Input
-                                                    id="name"
-                                                    placeholder="표기 이릅을 입력하세요."
-                                                />
-                                            </div>
-                                            <div className="grid grid-rows-2 items-center">
-                                                <Label htmlFor="username">
-                                                    값
-                                                </Label>
-                                                <Input
-                                                    id="value"
-                                                    placeholder="값을 입력하세요."
-                                                />
-                                            </div>
-                                        </div>
-                                        <DialogFooter>
-                                            <Button
-                                                variant=""
-                                                onClick={() => {}}
-                                            >
-                                                추가하기
-                                            </Button>
-                                        </DialogFooter>
-                                    </DialogContent>
-                                </Dialog>
                             </SheetContent>
                         </Sheet>
                     </div>
