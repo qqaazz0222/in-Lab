@@ -68,8 +68,9 @@ const SignPage = () => {
     return (
         <div
             id="signPage"
-            className="page flex items-center justify-center w-svw h-svh"
+            className="flex items-center justify-center w-svw h-svh"
         >
+            <div className="jumbo"></div>
             <Card className="w-responsive-sign transition-width">
                 <CardHeader>
                     <CardTitle>in:Lab</CardTitle>
