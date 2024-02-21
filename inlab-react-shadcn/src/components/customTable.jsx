@@ -165,6 +165,59 @@ const TodoClassTable = ({
     );
 };
 
+const TodoManageTable = () => {
+    const sampleData = [
+        {
+            status: "회의",
+            startDateTime: "2024.01.01 10:30",
+            endDateTime: "2024.01.01 11:00",
+            detail: "주간회의",
+        },
+        {
+            status: "업무",
+            startDateTime: "2024.01.01 13:00",
+            endDateTime: "2024.01.01 13:00",
+            detail: "과업 A",
+        },
+        {
+            status: "업무",
+            startDateTime: "2024.01.01 15:00",
+            endDateTime: "2024.01.01 15:20",
+            detail: "과업 B",
+        },
+        {
+            status: "미팅",
+            startDateTime: "2024.01.01 15:30",
+            endDateTime: "2024.01.01 18:00",
+            detail: "거래처 미팅(OO사)",
+        },
+    ];
+    return (
+        <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHead>구분</TableHead>
+                    <TableHead>상세</TableHead>
+                    <TableHead>시작</TableHead>
+                    <TableHead>종료</TableHead>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
+                {sampleData.map((data, idx) => (
+                    <TableRow key={`tableRow${idx}`}>
+                        <TableCell className="font-medium">
+                            {data.status}
+                        </TableCell>
+                        <TableCell>{data.detail}</TableCell>
+                        <TableCell>{data.startDateTime}</TableCell>
+                        <TableCell>{data.endDateTime}</TableCell>
+                    </TableRow>
+                ))}
+            </TableBody>
+        </Table>
+    );
+};
+
 const ProjectTable = () => {
     const sampleData = [
         { project: "프로젝트A", status: "진행중", detail: "프로젝트 핫픽스" },
@@ -271,6 +324,7 @@ export {
     AttendanceTable,
     TodoTable,
     TodoClassTable,
+    TodoManageTable,
     ProjectTable,
     NoticeTable,
 };

@@ -47,17 +47,25 @@ const SignPage = () => {
     // 함수
     const requestSignIn = async () => {
         if (option === "user") {
-            requestUserSignIn(idRef.current.value, pwRef.current.value);
+            requestUserSignIn(
+                idRef.current.value,
+                pwRef.current.value,
+                (msg) => {
+                    setErrMsg(msg);
+                }
+            );
         } else {
             requestAdminSignIn();
         }
     };
-    const requestUserSignIn = async (id, pw) => {
+    const requestUserSignIn = async (id, pw, onError = () => {}) => {
         if (option === "user") {
             const response = await UserSignIn(id, pw);
             if (response.status === 200) {
                 setUser(response.data);
                 navigate("/home");
+            } else if (response.status === 201) {
+                onError("어아다 또는 비밀번호가 일치하지 않습니다.");
             }
         }
     };
@@ -176,13 +184,11 @@ const SignPage = () => {
                 </CardFooter>
             </Card>
             <AlertDialog open={errMsg !== ""}>
-                <AlertDialogContent>
+                <AlertDialogContent className="sm:max-w-[425px]">
                     <AlertDialogHeader>
                         <AlertDialogTitle>{errMsg}</AlertDialogTitle>
                         <AlertDialogDescription>
-                            This action cannot be undone. This will permanently
-                            delete your account and remove your data from our
-                            servers.
+                            아이디와 비밀번호를 확인하신 후, 다시 시도해 주세요.
                         </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>

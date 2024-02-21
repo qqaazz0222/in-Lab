@@ -39,7 +39,7 @@ const MyCalendar = () => {
             <CardFooter>
                 <Tabs defaultValue="todo" className="w-full">
                     <TabsList className="grid w-full grid-cols-3">
-                        <TabsTrigger value="todo">할일</TabsTrigger>
+                        <TabsTrigger value="todo">할 일</TabsTrigger>
                         <TabsTrigger value="attendance">근태</TabsTrigger>
                         <TabsTrigger value="project">프로젝트</TabsTrigger>
                     </TabsList>
@@ -63,7 +63,7 @@ const TodoCalendar = () => {
     return (
         <Card>
             <CardHeader>
-                <CardTitle>할일 캘린더</CardTitle>
+                <CardTitle>할 일 캘린더</CardTitle>
                 <CardDescription>@ To Do Calendar</CardDescription>
             </CardHeader>
             <CardContent>

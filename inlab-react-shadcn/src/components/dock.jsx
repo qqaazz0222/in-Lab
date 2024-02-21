@@ -11,7 +11,7 @@ import "./responsive.css";
 
 const NavList = [
     { name: "홈", link: "home", icon: <Home className="w-6 h-6" /> },
-    { name: "할일", link: "todo", icon: <ListTodo className="w-6 h-6" /> },
+    { name: "할 일", link: "todo", icon: <ListTodo className="w-6 h-6" /> },
     {
         name: "근태",
         link: "attendance",

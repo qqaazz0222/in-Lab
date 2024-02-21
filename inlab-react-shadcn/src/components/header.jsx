@@ -29,15 +29,15 @@ const Header = () => {
     const signOut = () => {
         clearUser();
     };
-    useEffect(() => {
-        if (
-            userData.uid === "" ||
-            userData.name === "" ||
-            userData.token === ""
-        ) {
-            navigate("/");
-        }
-    }, [userData]);
+    // useEffect(() => {
+    //     if (
+    //         userData.uid === "" ||
+    //         userData.name === "" ||
+    //         userData.token === ""
+    //     ) {
+    //         navigate("/");
+    //     }
+    // }, [userData]);
     return (
         <div
             id="header"
