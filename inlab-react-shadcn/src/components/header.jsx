@@ -1,5 +1,20 @@
+//라이브러리
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import useUserStore from "@/stores/userStore";
+//서비스
+//컴포넌트
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,6 +24,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+//아이콘
 import {
     Bell,
     HelpCircle,
@@ -19,7 +35,6 @@ import {
     UserPlus,
     Users,
 } from "lucide-react";
-import { useEffect } from "react";
 
 const Header = () => {
     const navigate = useNavigate();
@@ -29,15 +44,17 @@ const Header = () => {
     const signOut = () => {
         clearUser();
     };
-    // useEffect(() => {
-    //     if (
-    //         userData.uid === "" ||
-    //         userData.name === "" ||
-    //         userData.token === ""
-    //     ) {
-    //         navigate("/");
-    //     }
-    // }, [userData]);
+    useEffect(() => {
+        if (
+            userData.uid === "" ||
+            userData.name === "" ||
+            userData.token === ""
+        ) {
+            setTimeout(() => {
+                navigate("/");
+            }, 5000);
+        }
+    }, [userData]);
     return (
         <div
             id="header"
@@ -88,6 +105,31 @@ const Header = () => {
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
+            <AlertDialog
+                open={
+                    userData.uid === "" ||
+                    userData.name === "" ||
+                    userData.token === ""
+                }
+            >
+                <AlertDialogContent className="w-[420px]">
+                    <AlertDialogHeader>
+                        <AlertDialogTitle>로그아웃</AlertDialogTitle>
+                        <AlertDialogDescription>
+                            로그아웃 되셨습니다. 5초 후 메인화면으로 이동됩니다.
+                        </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                        <AlertDialogAction
+                            onClick={() => {
+                                navigate("/");
+                            }}
+                        >
+                            메인화면으로 돌아가기
+                        </AlertDialogAction>
+                    </AlertDialogFooter>
+                </AlertDialogContent>
+            </AlertDialog>
         </div>
     );
 };
