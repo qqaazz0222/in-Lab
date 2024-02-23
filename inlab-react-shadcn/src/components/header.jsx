@@ -43,6 +43,7 @@ const Header = () => {
         clearUser();
     };
     useEffect(() => {
+        console.log(userData);
         if (
             userData.uid === "" ||
             userData.name === "" ||
