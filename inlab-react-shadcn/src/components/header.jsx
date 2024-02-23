@@ -1,19 +1,17 @@
 //라이브러리
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useUserStore from "@/stores/userStore";
 //서비스
 //컴포넌트
 import {
     AlertDialog,
     AlertDialogAction,
-    AlertDialogCancel,
     AlertDialogContent,
     AlertDialogDescription,
     AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle,
-    AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -112,7 +110,7 @@ const Header = () => {
                     userData.token === ""
                 }
             >
-                <AlertDialogContent className="w-[420px]">
+                <AlertDialogContent className="sm:max-w-[420px]">
                     <AlertDialogHeader>
                         <AlertDialogTitle>로그아웃</AlertDialogTitle>
                         <AlertDialogDescription>

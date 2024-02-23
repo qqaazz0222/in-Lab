@@ -184,7 +184,7 @@ const SignPage = () => {
                 </CardFooter>
             </Card>
             <AlertDialog open={errMsg !== ""}>
-                <AlertDialogContent className="sm:max-w-[425px]">
+                <AlertDialogContent className="sm:max-w-[420px]">
                     <AlertDialogHeader>
                         <AlertDialogTitle>{errMsg}</AlertDialogTitle>
                         <AlertDialogDescription>
