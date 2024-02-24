@@ -1,10 +1,13 @@
 // 라이브러리
 const createError = require("http-errors");
 const express = require("express");
+const http = require("http");
 const cors = require("cors");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const debug = require("debug")("inlab-node:server");
+const { Server } = require("socket.io");
 
 // 미들웨어
 const userMiddleware = require("./middleware/userMiddleware"); // 사용자 미들웨어
@@ -56,4 +59,76 @@ app.use((err, req, res, next) => {
     res.render("error");
 });
 
-module.exports = app;
+const normalizePort = (val) => {
+    const port = parseInt(val, 10);
+    if (isNaN(port)) {
+        return val;
+    }
+    if (port >= 0) {
+        return port;
+    }
+    return false;
+};
+
+const onError = (error) => {
+    if (error.syscall !== "listen") {
+        throw error;
+    }
+
+    const bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
+    switch (error.code) {
+        case "EACCES":
+            console.error(bind + " requires elevated privileges");
+            process.exit(1);
+            break;
+        case "EADDRINUSE":
+            console.error(bind + " is already in use");
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
+};
+
+const onListening = () => {
+    const addr = server.address();
+    const bind =
+        typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
+    debug("Listening on " + bind);
+};
+
+const port = normalizePort(process.env.PORT || "80");
+app.set("port", port);
+const server = http.createServer(app);
+// 소켓 설정
+const io = new Server(server, {
+    cors: {
+        origin: "*",
+        methods: ["GET", "POST"],
+    },
+});
+io.on("connection", (socket) => {
+    console.log(`${socket.id}가 접속했습니다.`);
+    socket.on("join_room", (data) => {
+        socket.join(data.room);
+        console.log(`${data.username}유저가 ${data.room}번 방에 입장했습니다`);
+        let noti = {
+            message: `${data.username} 유저가 방에 입장했습니다`,
+            author: "알림",
+        };
+        socket.to(data.room).emit("receive_message", noti);
+    });
+
+    socket.on("send_message", (data) => {
+        console.log(data);
+        socket.to(data.room).emit("receive_message", data);
+    });
+
+    socket.on("disconnect", () => {
+        console.log(`${socket.id}가 접속을 끊었습니다`);
+    });
+});
+// 서버 실행
+server.listen(port);
+server.on("error", onError);
+server.on("listening", onListening);

@@ -3,8 +3,8 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "start": "pm2 start ./bin/www.js",
-        "dev": "node ./swagger/swagger.js; nodemon ./bin/www.js",
+        "start": "pm2 start app.js",
+        "dev": "node ./swagger/swagger.js; nodemon app.js",
         "api-docs": "node ./swagger/swagger.js"
     },
     "dependencies": {
@@ -23,6 +23,7 @@
         "nodemailer": "^6.9.9",
         "nodemon": "^3.0.3",
         "pm2": "^5.3.1",
+        "socket.io": "^4.7.4",
         "swagger-autogen": "^2.23.7",
         "swagger-jsdoc": "^6.2.8",
         "swagger-ui-express": "^5.0.0",

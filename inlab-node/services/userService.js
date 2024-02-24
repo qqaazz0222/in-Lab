@@ -37,7 +37,7 @@ const create = async (req) => {
         } else {
             const hashedPassword = await CreateHashedPassword(pw);
             const response = await db.query(
-                "INSERT INTO user(uid, upw, name, phone, email) VALUE (?, ?, ?, ?, ?);",
+                "INSERT INTO userTable(uid, upw, name, phone, email) VALUE (?, ?, ?, ?, ?);",
                 [
                     id,
                     hashedPassword,
@@ -81,7 +81,7 @@ const readDetail = async (req) => {
         /* 관리자 권한 확인 */
         // 관리자일 경우
         const response = await db.query(
-            "SELECT uid, name, phone, email FROM user WHERE uid = ?;",
+            "SELECT uid, name, phone, email FROM userTable WHERE uid = ?;",
             [req.params.uid]
         );
         if (response[0].length === 0) {
@@ -111,7 +111,7 @@ const updateInfo = async (req) => {
             return { status: 201, msg: "등록되지 않은 사용자", data: [] };
         }
         const response = await db.query(
-            "UPDATE user SET name=?, phone=?, email=? WHERE uid = ?;",
+            "UPDATE userTable SET name=?, phone=?, email=? WHERE uid = ?;",
             [name, phone, email, id]
         );
         return {
@@ -159,7 +159,7 @@ const updatePermission = async (req) => {
             const isUsing = permit ? 1 : 0;
             const originalPermit = originalInfo.isUsing;
             const response = await db.query(
-                "UPDATE user SET isUsing=? WHERE uid = ?;",
+                "UPDATE userTable SET isUsing=? WHERE uid = ?;",
                 [isUsing, id]
             );
             return {
@@ -189,7 +189,9 @@ const deleteDetail = async (req) => {
         if (originalInfo) {
             return { status: 201, msg: "등록되지 않은 사용자", data: [] };
         }
-        const response = await db.query("DELETE FROM user WHERE uid = ?", [id]);
+        const response = await db.query("DELETE FROM userTable WHERE uid = ?", [
+            id,
+        ]);
         return {
             status: 200,
             msg: "사용자 삭제 성공",

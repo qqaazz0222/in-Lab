@@ -1,62 +1,40 @@
-import React, {
-    ReactChild,
-    ReactFragment,
-    RefObject,
-    useMemo,
-    useState,
-} from "react";
-import ReactQuill, { Quill } from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import { useEffect, useState } from "react";
+import io from "socket.io-client";
+import useUserStore from "@/stores/userStore";
 
-const formats = [
-    "font",
-    "header",
-    "bold",
-    "italic",
-    "underline",
-    "strike",
-    "blockquote",
-    "list",
-    "bullet",
-    "indent",
-    "link",
-    "align",
-    "color",
-    "background",
-    "size",
-    "h1",
-];
+const socket = io.connect("http://localhost:80");
 
 const TestPage = () => {
-    const [values, setValues] = useState();
-
-    const modules = useMemo(() => {
-        return {
-            toolbar: {
-                container: [
-                    [{ size: ["small", false, "large", "huge"] }],
-                    [{ align: [] }],
-                    ["bold", "italic", "underline", "strike"],
-                    [{ list: "ordered" }, { list: "bullet" }],
-                    [
-                        {
-                            color: [],
-                        },
-                        { background: [] },
-                    ],
-                ],
-            },
-        };
-    }, []);
+    const userData = useUserStore((state) => state.userData);
+    const roomname = "testroom";
+    const username = userData.name;
+    const joinRoom = () => {
+        socket.emit("join_room", { room: roomname, username: username });
+    };
+    const sendMessage = async () => {
+        const currentMsg = "테스트메시지";
+        if (currentMsg !== "") {
+            const messageData = {
+                room: roomname,
+                author: username,
+                message: currentMsg,
+                time:
+                    new Date(Date.now()).getHours() +
+                    ":" +
+                    new Date(Date.now()).getMinutes(),
+            };
+            await socket.emit("send_message", messageData);
+        }
+    };
+    useEffect(() => {
+        socket.on("receive_message", (data) => {
+            console.log(data);
+        });
+    }, [socket]);
     return (
         <div id="testPage">
-            <ReactQuill
-                className="w-[640px] h-[480px]"
-                theme="snow"
-                modules={modules}
-                formats={formats}
-                onChange={setValues}
-            />
+            <button onClick={joinRoom}>방접속</button>
+            <button onClick={sendMessage}>보내기</button>
         </div>
     );
 };

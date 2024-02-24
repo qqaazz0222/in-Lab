@@ -38,7 +38,7 @@ const signInUser = async (req) => {
         } else {
             const hashedPassword = await CreateHashedPassword(pw);
             const response = await db.query(
-                "SELECT uid, name FROM user WHERE uid = ? and upw = ?;",
+                "SELECT uid, name FROM userTable WHERE uid = ? and upw = ?;",
                 [id, hashedPassword]
             );
             if (response[0].length > 0) {
