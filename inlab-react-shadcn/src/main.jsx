@@ -9,10 +9,11 @@ import ChatLayout from "./layouts/chatLayout/layout";
 import SignPage from "./pages/sign/page";
 import HomePage from "./pages/home/page";
 import TodoPage from "./pages/todo/page";
+import ChatPage from "./pages/chat/page";
+import TestPage from "./pages/test/page";
 // 스타일
 import "./index.css";
 import "./custom.css";
-import ChatPage from "./pages/chat/page";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
     {
         element: <ChatLayout />,
         children: [{ path: "/chat", element: <ChatPage /> }],
+    },
+    {
+        path: "/test",
+        element: <TestPage />,
     },
 ]);
 
