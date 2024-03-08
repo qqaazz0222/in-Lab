@@ -9,6 +9,7 @@ import ChatLayout from "./layouts/chatLayout/layout";
 import SignPage from "./pages/sign/page";
 import HomePage from "./pages/home/page";
 import TodoPage from "./pages/todo/page";
+import ProjectPage from "./pages/project/page";
 import ChatPage from "./pages/chat/page";
 import TestPage from "./pages/test/page";
 // 스타일
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path: "/todo",
                 element: <TodoPage />,
+            },
+            {
+                path: "/project",
+                element: <ProjectPage />,
             },
         ],
     },
